@@ -5,10 +5,22 @@ Sistema de gestión profesional para psicólogos con análisis inteligente de se
 ## Características
 
 - 📋 **Gestión de Pacientes**: Registro completo con datos personales seguros
-- 📅 **Calendario de Turnos**: Agenda y visualiza citas fácilmente
-- 📝 **Notas de Sesión**: Registro detallado de cada sesión
-- 🤖 **Análisis con IA**: Detección de patrones y palabras clave
-- 🔒 **Seguridad**: Datos cifrados y almacenados localmente
+- 📅 **Calendario de Turnos**: Agenda y visualiza citas fácilmente  
+- 📝 **Registro de Sesiones**: Notas detalladas, objetivos, intervenciones y observaciones
+- 🤖 **Análisis con IA**: Detección de patrones, palabras clave y análisis de sentimiento
+- 🔒 **Seguridad Avanzada**: Autenticación, cifrado de datos y backups
+- 💾 **Sistema de Backups**: Copias de seguridad automáticas y restauración
+- 📊 **Dashboard**: Estadísticas y métricas de tu práctica profesional
+
+## Seguridad
+
+- ✅ **Autenticación con contraseña maestra**
+- ✅ **Cifrado de datos sensibles** (AES-128)
+- ✅ **Almacenamiento local** (sin envío a servidores)
+- ✅ **Backups comprimidos y seguros**
+- ✅ **Cumplimiento con normativas de protección de datos**
+
+> **Ver [SECURITY.md](SECURITY.md) para más información sobre seguridad**
 
 ## Instalación
 

@@ -11,6 +11,7 @@ from src.ui.calendario_view import CalendarioView
 from src.ui.dashboard_view import DashboardView
 from src.ui.sesiones_view import SesionesView
 from src.ui.analisis_ia_view import AnalisisIAView
+from src.ui.configuracion_view import ConfiguracionView
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -49,6 +50,7 @@ class MainWindow(QMainWindow):
         self.calendario_view = CalendarioView()
         self.sesiones_view = SesionesView()
         self.analisis_ia_view = AnalisisIAView()
+        self.configuracion_view = ConfiguracionView()
         
         # Agregar vistas al stack
         self.content_area.addWidget(self.dashboard_view)
@@ -56,6 +58,7 @@ class MainWindow(QMainWindow):
         self.content_area.addWidget(self.calendario_view)
         self.content_area.addWidget(self.sesiones_view)
         self.content_area.addWidget(self.analisis_ia_view)
+        self.content_area.addWidget(self.configuracion_view)
         
         # Mostrar dashboard por defecto
         self.content_area.setCurrentWidget(self.dashboard_view)
@@ -103,6 +106,12 @@ class MainWindow(QMainWindow):
         
         layout.addStretch()
         
+        # Botón de configuración
+        self.btn_configuracion = self.create_nav_button("⚙️ Configuración", 5)
+        layout.addWidget(self.btn_configuracion)
+        
+        layout.addStretch()
+        
         # Información del usuario
         user_info = QLabel("👤 Dr. Usuario")
         user_info.setObjectName("user-info")
@@ -124,7 +133,8 @@ class MainWindow(QMainWindow):
         self.content_area.setCurrentIndex(index)
         
         # Actualizar estilos de botones activos
-        buttons = [self.btn_dashboard, self.btn_pacientes, self.btn_calendario, self.btn_sesiones, self.btn_analisis_ia]
+        buttons = [self.btn_dashboard, self.btn_pacientes, self.btn_calendario, self.btn_sesiones, 
+                   self.btn_analisis_ia, self.btn_configuracion]
         for i, btn in enumerate(buttons):
             if i == index:
                 btn.setProperty("active", True)

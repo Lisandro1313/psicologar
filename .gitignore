@@ -14,6 +14,12 @@ ENV/
 *.sqlite3
 .env
 
+# Configuración y seguridad
+config/
+backups/
+*.key
+*.hash
+
 # IDE
 .vscode/
 .idea/
