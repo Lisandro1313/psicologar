@@ -6,6 +6,8 @@ from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QLabel,
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
 from src.controllers.paciente_controller import PacienteController
+from src.controllers.turno_controller import TurnoController
+from datetime import date
 
 class DashboardView(QWidget):
     def __init__(self):
@@ -117,6 +119,18 @@ class DashboardView(QWidget):
         # Contar pacientes activos
         total_pacientes = PacienteController.contar_pacientes_activos()
         self.card_pacientes.value_label.setText(str(total_pacientes))
+        
+        # Contar citas de hoy
+        citas_hoy = TurnoController.contar_turnos_hoy()
+        self.card_citas_hoy.value_label.setText(str(citas_hoy))
+        
+        # Sesiones del mes (se implementará con el controlador)
+        # Por ahora dejamos en 0
+        self.card_sesiones_mes.value_label.setText("0")
+        
+        # Próximas citas en 24h
+        proximos = TurnoController.obtener_proximos_turnos(1)
+        self.card_proximas.value_label.setText(str(len(proximos)))
     
     def showEvent(self, event):
         """Se ejecuta cuando la vista se muestra"""

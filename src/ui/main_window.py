@@ -9,6 +9,8 @@ from src.database.db_manager import db
 from src.ui.pacientes_view import PacientesView
 from src.ui.calendario_view import CalendarioView
 from src.ui.dashboard_view import DashboardView
+from src.ui.sesiones_view import SesionesView
+from src.ui.analisis_ia_view import AnalisisIAView
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -45,11 +47,15 @@ class MainWindow(QMainWindow):
         self.dashboard_view = DashboardView()
         self.pacientes_view = PacientesView()
         self.calendario_view = CalendarioView()
+        self.sesiones_view = SesionesView()
+        self.analisis_ia_view = AnalisisIAView()
         
         # Agregar vistas al stack
         self.content_area.addWidget(self.dashboard_view)
         self.content_area.addWidget(self.pacientes_view)
         self.content_area.addWidget(self.calendario_view)
+        self.content_area.addWidget(self.sesiones_view)
+        self.content_area.addWidget(self.analisis_ia_view)
         
         # Mostrar dashboard por defecto
         self.content_area.setCurrentWidget(self.dashboard_view)
@@ -86,10 +92,14 @@ class MainWindow(QMainWindow):
         self.btn_dashboard = self.create_nav_button("🏠 Dashboard", 0)
         self.btn_pacientes = self.create_nav_button("👥 Pacientes", 1)
         self.btn_calendario = self.create_nav_button("📅 Calendario", 2)
+        self.btn_sesiones = self.create_nav_button("📝 Sesiones", 3)
+        self.btn_analisis_ia = self.create_nav_button("🤖 Análisis IA", 4)
         
         layout.addWidget(self.btn_dashboard)
         layout.addWidget(self.btn_pacientes)
         layout.addWidget(self.btn_calendario)
+        layout.addWidget(self.btn_sesiones)
+        layout.addWidget(self.btn_analisis_ia)
         
         layout.addStretch()
         
@@ -114,7 +124,7 @@ class MainWindow(QMainWindow):
         self.content_area.setCurrentIndex(index)
         
         # Actualizar estilos de botones activos
-        buttons = [self.btn_dashboard, self.btn_pacientes, self.btn_calendario]
+        buttons = [self.btn_dashboard, self.btn_pacientes, self.btn_calendario, self.btn_sesiones, self.btn_analisis_ia]
         for i, btn in enumerate(buttons):
             if i == index:
                 btn.setProperty("active", True)
